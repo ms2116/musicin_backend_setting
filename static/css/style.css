@@ -1,0 +1,136 @@
+html,
+body {
+    margin: 0;
+    background: #6C2ED2;
+    color: #f1f1f1
+}
+#editor_div{
+    width:100%;
+    height: 60vh;
+    position: relative;
+}
+.editor_vh{
+    height: 60vh;
+    /*border: 1px solid black;*/
+    z-index: 40;
+}
+#editor_div > div > video{
+    height: 100%;
+    width : 100%;
+    position: relative;
+    /*padding-bottom:12vh;*/
+    z-index: 3;
+    /*border: 1px solid blue;*/
+}
+#editor_div > div > canvas{
+    height: 100%;
+    width : 100%;
+    position: relative;
+    /*padding-bottom:12vh;*/
+    z-index: 3;
+    /*border: 1px solid blue;*/
+}
+
+.editor_menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 32vh;
+    z-index:100;
+    /*border:1px solid black;*/
+}
+.editor_menu > div {
+    /*position: fixed;*/
+    float: left;
+    width: 20%;
+    height: 15vh;
+    text-align: center;
+}
+.tmp{
+    /*display:none;*/
+}
+#bground-family {
+    z-index: 10;
+    bottom:50%;
+    position: absolute;
+    display: inline-flex;
+    flex-wrap: wrap;
+    height: 50%;
+    width: 100%;
+}
+
+/* 이부분 무한 스크롤 처리 하자*/
+#bground-family>div {
+    z-index: 20;
+    color:white;
+    position: relative;
+    display: block;
+    width: 10%;
+    height: 100%;
+}
+
+#bground-family>div>video {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#bground-family>div>img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#twice-family {
+    z-index: 10;
+    bottom:0;
+    position: absolute;
+    display: inline-flex;
+    flex-wrap: wrap;
+    height: 50%;
+    width: 100%;
+}
+
+/* 이부분 무한 스크롤 처리 하자*/
+#twice-family>div {
+    z-index: 20;
+    color:white;
+    position: relative;
+    display: block;
+    width: 20%;
+    height: 100%;
+}
+
+#twice-family>div>video {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#twice-family>div>img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+#download {
+    display: none
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    cursor: pointer;
+    margin-bottom: 20px
+}

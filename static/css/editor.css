@@ -1,0 +1,238 @@
+.close-area-editor{
+    width: 15px;
+    height: 15px;
+}
+.editor_main_div{
+    width:100%;
+    justify-content: center;
+    align-content: center;
+    max-width: 960px;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 2;
+}
+/* editor_canvas 수정 파트*/
+#canvas_editor{
+    z-index: -1;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  height: 85%;
+  /*width: 360px;*/
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+/* bottom 메뉴 수정*/
+.wrap-vertical{
+  /*position:fixed;*/
+  /*left:0;*/
+  width: 100vw;
+  color: #112031;
+  /*background: #F0D9FF;*/
+   /* 가로 스크롤 */
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.wrap-horizontal{
+  /*position:fixed;*/
+  /*left:0;*/
+  height: 100vw;
+  color: #112031;
+  background: #F0D9FF;
+   /* 가로 스크롤 */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wrap-vertical::-webkit-scrollbar{
+    display: none;
+}
+.bg-selection{
+    display: flex;
+    height: 60px;
+}
+.bg-selection-holo{
+    display: flex;
+    height: 120px;
+}
+.bg-selection > video{
+  display: flex;
+  height: 60px;
+}
+
+/* 편집 modal 부분*/
+.editor_modal{
+    background-color: rgba( 0, 0, 0, 0.70);
+    width: 100%;
+    display: flex;
+    z-index: 30;
+    /*flex-direction: column;*/
+    margin-top: 5px;
+    height: 200px;
+    position: fixed;
+    bottom:0;
+    visibility: hidden;
+    box-shadow: 0 15px 0.3rem 0.1rem #01011c;
+}
+.editor_modal.show{
+    visibility: visible;
+    /*display: flex;*/
+}
+.recording_result{
+    width:300px;
+    justify-content: space-around;
+    display: flex;
+    position: fixed;
+    bottom: 10%;
+}
+.recording_result > span {
+    font-size: 2.4rem;
+}
+.editor_page_menu{
+    background: linear-gradient(to bottom, #6C2ED2, #210f44);
+    align-items: center;
+    justify-content: space-around;
+    /*border-top-right-radius:10px;*/
+    /*border-top-left-radius: 10px;*/
+    box-shadow: 0 0rem 5px 3px #010115;
+    height: 8%;
+    position: fixed;
+    bottom:0;
+    display: flex;
+    width:100%
+}
+.easy-column-center{
+    display: flex;
+    align-items: center;
+}
+.easy-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.canvas-clear{
+    justify-content: center;
+    width: 50px;
+    height: 40px;
+}
+.material-symbols-rounded{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.someting-plus{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height:40px;
+}
+#bg-plus{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height:60px;
+}
+#bg-plus > span{
+    justify-content: center;
+    width: 50px;
+    height:60px;
+    font-size:2.4rem;
+}
+#webm-plus{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height:60px;
+}
+.editor_icon{
+    color: black;
+    width: 25px;
+    height: 25px;
+    font-size: 30px;
+}
+
+.bg_item{
+    margin:1px;
+}
+.webm_item{
+    margin:1px;
+}
+
+.video_confirm{
+  height: 80vh;
+  position : fixed;
+  top:0;
+}
+
+/* 홀로그램 modal 모드*/
+.holo_modal{
+    background-color: rgba( 0, 0, 0, 0.7);
+    width: 100%;
+    display: flex;
+    z-index: 30;
+    /*flex-direction: column;*/
+    margin-top: 5px;
+    height: 200px;
+    position: fixed;
+    bottom:0;
+    visibility: hidden;
+    box-shadow: 0 15px 0.3rem 0.1rem #010138;
+}
+.holo_modal.show{
+    visibility: visible;
+
+}
+.item:nth-child(1) {
+	height: 200px;
+    flex-shrink: 0;
+	width: 50px;
+}
+.item:nth-child(2) {
+	flex-grow: 1;
+}
+.canvas-clear-child{
+    height:40px;
+}
+#webmcam{
+    visibility: hidden;
+    width:300px;
+    height:400px;
+}
+#webm-plus-holo{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height:120px;
+}
+.editor_category{
+    height: 40px;
+}
+.category-name{
+    text-align: center;
+    margin-left:5px;
+    margin-right:5px;
+    border-radius: 20px;
+    min-width:80px;
+    color:white;
+    font-size: 1.1rem;
+    box-shadow: #6C2ED2;
+}
+#bg-video-plus{
+    height: 0;
+}
+/*div {*/
+/*  border: 1px solid #000;*/
+/*}*/
+#bg-input-form{
+    display: none;
+}
+#recording-timer{
+    display: block;
+    position: fixed;
+    font-size: 20px;
+    color: red;
+    right:0;
+}

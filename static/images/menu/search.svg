@@ -1,0 +1,28 @@
+<svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_20_551)">
+<path d="M4 20C4 8.9543 12.9543 0 24 0H34C45.0457 0 54 8.95431 54 20V30C54 41.0457 45.0457 50 34 50H24C12.9543 50 4 41.0457 4 30V20Z" fill="url(#paint0_linear_20_551)"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M32.7771 31.1911L37.3101 35.7251C37.7008 36.1159 38.3344 36.1159 38.7251 35.7251C39.1159 35.3344 39.1159 34.7008 38.7251 34.3101L34.1911 29.7771C36.9802 26.2394 36.5286 21.141 33.1612 18.1486C29.7939 15.1561 24.6777 15.3068 21.4922 18.4922C18.3068 21.6777 18.1561 26.7939 21.1486 30.1612C24.141 33.5286 29.2394 33.9802 32.7771 31.1911ZM25.0084 30.51C22.5927 29.4988 21.0198 27.1368 21.0181 24.5181C21.0162 21.5814 22.9837 19.0082 25.8181 18.2402C28.6526 17.4722 31.65 18.7 33.131 21.2359C34.612 23.7718 34.2087 26.9857 32.1471 29.0771L32.1111 29.1111L32.0771 29.1471C30.2105 30.9838 27.424 31.5211 25.0084 30.51Z" fill="#333333"/>
+<mask id="mask0_20_551" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="19" y="16" width="21" height="21">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M37.3101 35.7251L32.7771 31.1911C29.2394 33.9802 24.141 33.5286 21.1486 30.1612C18.1561 26.7939 18.3068 21.6777 21.4922 18.4922C24.6777 15.3068 29.7939 15.1561 33.1612 18.1486C36.5286 21.141 36.9802 26.2394 34.1911 29.7771L38.7251 34.3101C39.1159 34.7008 39.1159 35.3344 38.7251 35.7251C38.3344 36.1159 37.7008 36.1159 37.3101 35.7251ZM21.0181 24.5181C21.0198 27.1368 22.5927 29.4988 25.0084 30.51C27.424 31.5211 30.2105 30.9838 32.0771 29.1471L32.1111 29.1111L32.1471 29.0771C34.2087 26.9857 34.612 23.7718 33.131 21.2359C31.65 18.7 28.6526 17.4722 25.8181 18.2402C22.9837 19.0082 21.0162 21.5814 21.0181 24.5181V24.5181Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_20_551)">
+<rect x="17.0181" y="14.0181" width="24" height="24" fill="#333333"/>
+</g>
+<defs>
+<filter id="filter0_d_20_551" x="0" y="0" width="58" height="58" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_20_551"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_20_551" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_20_551" x1="4" y1="0" x2="4" y2="50" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="#FEFEFE"/>
+</linearGradient>
+</defs>
+</svg>

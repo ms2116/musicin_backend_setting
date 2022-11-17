@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Scentomize for Music Creator{% endblock %}
+{% block head %}
+{{ super() }}
+<link href="{{ url_for('static', path='/css/editor.css?f54d') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+{% endblock %}
+
+{% block page_content %}
+
+<main role="main" class="container overflow-hidden" id=main_content xmlns="http://www.w3.org/1999/html">
+    <div class="editor_main_div">
+        <div id="recording-timer"></div>
+        <video id="webmcam" autoplay muted playsinline></video>
+        <canvas id="canvas_editor" width="720", height="1280"></canvas>
+        <div class="recording_result">
+            <span id="result-recording" class="material-symbols-rounded">play_circle</span>
+            <span id="result-stop" class="material-symbols-rounded">stop_circle</span>
+            <span id="result-download" class="material-symbols-rounded">download</span>
+        </div>
+        <div class="editor_page_menu">
+            <a href="/index"><div class="bottom_icon"><img class="editor_icon size50" src="static/images/menu/home2.svg" alt="home"></div></a>
+            <button class="btn-open-popup size50"><div class="bottom_icon"><img class="editor_icon size50" src="static/images/2_6_background/sceneadd.svg" alt="scene"></div></button>
+            <button class="btn-open-holo"><div class="bottom_icon"><span class="material-symbols-rounded editor_icon">background_replace</span></div></button>
+        </div>
+    </div>
+</main>
+
+    <div><span id="switch" class="button">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 768 768"><path fill="#f1f1f1" d="M528 496.5l79.5-81h-63q0-66-47.25-112.5t-113.25-46.5q-39 0-75 19.5l22.5 22.5q21-10.5 52.5-10.5 52.5 0 90 37.5t37.5 90h-63zM384 576q39 0 75-19.5l-22.5-24q-24 12-52.5 12-52.5 0-90-38.25t-37.5-90.75h63l-79.5-79.5-79.5 79.5h63q0 66 47.25 113.25t113.25 47.25zM640.5 160.5q25.5 0 44.25 18.75t18.75 44.25v384q0 25.5-18.75 45t-44.25 19.5h-513q-25.5 0-44.25-19.5t-18.75-45v-384q0-25.5 18.75-44.25t44.25-18.75h102l58.5-64.5h192l58.5 64.5h102z"></path></svg>
+    </span>
+        </div>
+<div class="editor_modal">
+    <div class="item">
+        <div class="canvas-clear easy-center"><img class="close-area-editor" src="static/images/2_7_adscene_page_editor/closeicon.svg"></div>
+        <div class="someting-plus"><span class="material-symbols-rounded">block</span></div>
+        <div id="bg-plus"><label for="bg-input-form" class="material-symbols-rounded">add_photo_alternate</label></div>
+        <div id="webm-plus"><span class="material-symbols-rounded">playlist_add_circle</span></div>
+    </div>
+    <form>
+    </form>
+    <div class="item">
+        <div class="canvas-clear-child easy-column-center">홀로그램</div>
+    <div class="wrap-vertical bg-selection editor_category">
+        <div class="category-name">MusicBG</div>
+        <div class="category-name">Jazz</div>
+        <div class="category-name">Rock</div>
+        <div class="category-name">Cutty</div>
+        <div class="category-name">Classic</div>
+        <div class="category-name">Hip-hop</div>
+        <div class="category-name">Nature</div>
+        <div class="category-name">Fractal</div>
+    </div>
+    <div class="wrap-vertical bg-selection">
+        <video class="bg_item" id="bg-video-plus" autoplay playsinline loop muted object-fit="cover" list="nodownload"></video>
+                 {% for file in bg_DB_list if bg_DB_list %}
+                 <video class="bg_item" id="bg-video{{loop.index}}" loop muted object-fit="cover" list="nodownload"src = {{file}}></video>
+                 {%endfor%}
+    </div>
+    <div class="wrap-vertical bg-selection">
+                 {% for file in process_DB_list|reverse if process_DB_list %}
+                 <video class="webm_item" id="webm-video{{loop.index}}" loop muted object-fit="cover" list="nodownload"src = {{file}}></video>
+                 {%endfor%}
+    </div>
+    </div>
+</div>
+        <input type="file" id="bg-input-form" onchange='addBgFile()'>
+
+
+<div class="holo_modal">
+    <div class="item">
+        <div class="canvas-clear easy-center"><img class="close-area-holo" src="static/images/2_7_adscene_page_editor/closeicon.svg"></div>
+        <div class="someting-plus"><button class="canvasclear"></button></div>
+        <div id="webm-plus-holo"><span class="material-symbols-rounded">playlist_add_circle</span></div>
+    </div>
+    <div class="item">
+        <div class="canvas-clear-child easy-column-center">홀로그램</div>
+    <div class="wrap-vertical bg-selection editor_category">
+        <div class="category-name">MusicBG</div>
+        <div class="category-name">Jazz</div>
+        <div class="category-name">Rock</div>
+        <div class="category-name">Cutty</div>
+        <div class="category-name">Classic</div>
+        <div class="category-name">Hip-hop</div>
+        <div class="category-name">Nature</div>
+        <div class="category-name">Fractal</div>
+    </div>
+    <div class="wrap-vertical bg-selection-holo">
+                 {% for file in process_DB_list|reverse if process_DB_list %}
+                 <video class="webm_item" id="webm-video-holo{{loop.index}}" loop muted object-fit="cover" list="nodownload"src = {{file}}></video>
+                 {%endfor%}
+    </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', path='/js/editor.js?ddsddsd') }}"></script>
+
+
+{% endblock %}
+
+
+
+

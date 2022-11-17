@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+{% block title %}Scentomize for Music Creator{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block page_content %}
+<main role="main" class="container" id=main_content xmlns="http://www.w3.org/1999/html">
+<!--    <div id="MainName">-->
+<!--        {{data.text|safe}}-->
+<!--    </div>-->
+            <!-- Drag and Drop container-->
+    <div id="video_div">
+        <div class="h_80hdiv">
+            <video id="main_video" autoplay muted playsinline loop list="nodownload"/>
+            <source src="{{ url_for('static', path='/main_sample/pexels-ekaterina-bolovtsova-7670663.mp4')}}" type="video/mp4">
+            {{ url_for('static', path='/js/dragdrop.js') }}
+        </div>
+<!--        <div><span class="music_tag" >이부분 영상 태그 기록들 스크롤 예정입니다..</span>-->
+<!--        </div>-->
+        <div class="right-sidebar">
+            <div>
+                <img class="remain_icon_img" src="{{ url_for('static', path='/images/menu/message.svg')}}" alt="message">
+            </div>
+            <div>
+                <img class="remain_icon_img" src="{{ url_for('static', path='/images/menu/save.svg')}}" alt="save">
+            </div>
+
+            <div>
+                <img class="remain_icon_img" src="{{ url_for('static', path='/images/menu/heart.svg')}}" alt="heart">
+            </div>
+
+            <div>
+                <img class="remain_icon_img" src="{{ url_for('static', path='/images/menu/share.svg')}}" alt="share">
+            </div>
+            <div>
+                <img class="remain_icon_img Size45" src="{{ url_for('static', path='/images/caption/Image_right_side.svg')}}" alt="right">
+            </div>
+
+        </div>
+    </div>
+</main>
+<div class="caption-all">
+    <div class="item">
+        <img class="middleImgSize40 caption-img" src="{{ url_for('static', path='/images/caption/daftimage.svg')}}" alt="daftimage"><img class="middleImgSize40" href="index" src="static/images/caption/Daftpunk.svg" alt="punk">
+    </div>
+    <div class="item"><img class="text-caption" src="{{ url_for('static', path='/images/caption/text.svg')}}" alt="text"></div>
+</div>
+    <div class="bottom_menu">
+        <div class="bottom_icon"><a href="/index"><img class="bottom_icon_img" src="{{ url_for('static', path='/images/menu/home2.svg')}}" alt="home"></a></div>
+        <div class="bottom_icon"><img class="bottom_icon_img" src="{{ url_for('static', path='/images/menu/search2.svg')}}" alt="search"></div>
+        <div class="bottom_icon main-color" style="background: #6C2ED2"><button class="btn-open-popup"><img class="bottom_icon_img" src="{{ url_for('static', path='/images/menu/webcam2.svg')}}" alt="camera"></button></div>
+        <div class="bottom_icon"><a href="/editor"><img class="bottom_icon_img" src="{{ url_for('static', path='/images/menu/upload2.svg')}}" alt="upload2"></a></div>
+        <div class="bottom_icon"><img class="bottom_icon_img" src="{{ url_for('static', path='/images/menu/profile2.svg')}}" alt="profile"></div>
+    </div>
+
+<!-- 여기부터 modal 화면 구성-->
+
+    <!-- 첫 번째 Modal을 여는 클래스 -->
+<div class="modal">
+    <div class="close-area"><img src="{{ url_for('static', path='/images/icon/recording/close.png')}}"></div>
+
+<!--        카메라 출력 파트-->
+    <div class="camera_video">
+        <video class="open_webcam" autoplay muted id="open_webcam"></video>
+        <video class="preview_video" autoplay muted id="preview"></video>
+        <video class="recording_video" preload="metadata" controls id="recording"></video>
+        <div class="modal_camera_edit">
+        <div class = "debug_div">
+            <pre id="debug"></pre>
+        </div>
+
+
+
+        <div class = "edit_content">
+            <div class="modal_bottom_icon middleImgSize40">
+                <button id="btn-set-start">
+                    시작
+                </button>
+            </div>
+            <div class="modal_bottom_icon middleImgSize40">
+                <button id="btn-set-end">
+                    끝
+                </button>
+            </div>
+
+            <div class="modal_bottom_icon middleImgSize40 ">
+                <button id="btn-set-bg">
+                    배경
+                </button>
+            </div>
+            <div class="modal_bottom_icon">
+                <img type=button class="modal_bottom_icon download-button" src="{{ url_for('static', path='/images/icon/recording_selecttion/full_save.svg')}}">
+            </div>
+            <div class="modal_bottom_icon">
+                <img type=button class="modal_bottom_icon setdone-button" src="{{ url_for('static', path='/images/icon/recording_selecttion/holomeset.svg')}}">
+            </div>
+        </div>
+
+    </div>
+        <img id="tmp-bg" src="" />
+    </div>
+<!-- modal 첫 화면 -->
+    <div id="modal_div1">
+
+<!--         modal  사이드바-->
+        <div class="right-sidebar recordtmp setRecordTime">
+            <div>
+                <button class="s30"><img class="middleImgSize40" src="{{ url_for('static', path='/images/second/30-seconds-icon.svg')}}"></button>
+            </div>
+            <div>
+                <button class="s20"><img class="middleImgSize40" src="{{ url_for('static', path='/images/second/20-seconds-icon.svg')}}"></button>
+            </div>
+
+            <div>
+                <button class="s15"><img class="middleImgSize40" src="{{ url_for('static', path='/images/second/15-seconds-icon.svg')}}"></button>
+            </div>
+
+            <div>
+                <button class="s10"><img class="middleImgSize40" src="{{ url_for('static', path='/images/second/10-seconds-icon.svg')}}"></button>
+            </div>
+
+            <div>
+                <button class="infinity"><img class="imgsize30" src="{{ url_for('static', path='/images/second/infinity-loop-icon.svg')}}"></button>
+            </div>
+        </div>
+
+<!--   첫 modal bottom menu-->
+    <div class="modal_bottom_menu bottom-8">
+<!--        <img type="button" class=" bigImgSize75" src="static/images/icon/recording/instruction_icon.svg">-->
+        <span class="material-symbols-rounded bigImgSize75 font-size-60">video_library</span>
+        <img type="button" class="record-button bigImgSize75" src="{{ url_for('static', path='/images/icon/recording/StartRecordingIcon.svg')}}">
+        <span class="material-symbols-rounded bigImgSize75 font-size-60">cloud_upload</span>
+<!--        <img type="button" class="bottom_icon_img bigImgSize75" src="static/images/icon/recording/instruction_icon.svg">-->
+    </div>
+    <div class="recording_name">
+        <div>Instruction</div>
+        <div>HOLO ME</div>
+        <div>Add HoLo</div>
+    </div>
+    <div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+    </div>
+</div>
+<!--    modal 두번째 // 카메라 녹화 실행시 화면 -->
+    <div id="modal_div2">
+        <div class="modal_bottom_menu modal_camera_recording">
+            <div class = "modal_bottom_icon bigImgSize75">
+<!--                <div class="circular-progress stop-button"><img class="size50" src="static/images/icon/recording/stopbutton.svg" id="stop-button"></div>-->
+                <div class="circular-progress stop-button"><span class="material-symbols-rounded stop-button" id="stop-button">stop_circle</span></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="loading-div">
+        <img id="loading-image" src="{{ url_for('static', path='/images/loading/video-camera-90172.svg')}}" alt="Loading..." />
+    </div>
+<!--    카메라 정지후 편집 화면 -->
+<!--    <div class="center-display">-->
+
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<!--카메라 modal 처리 파트-->
+<script>
+    // document.getElementById('main_video').play();
+</script>
+<script type="module" src="{{ url_for('static', path='/js/dragdrop.js') }}"></script>
+<script src="{{ url_for('static', path='/js/camera.js?abcddde') }}"></script>
+
+
+<!-- 카메라 스위치 버튼-->
+
+{% endblock %}
